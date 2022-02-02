@@ -1,11 +1,9 @@
 import React, { useState, useEffect, createContext } from 'react';
-import logo from './logo.png';
-import { LoginField } from './LoginField';
+import { LoginHeader } from './components/LoginHeader';
+import { LoginField } from './components/LoginField';
 import './App.css';
 import { overrideThemeVariables } from 'ui-neumorphism'
 import 'ui-neumorphism/dist/index.css'
-
-// const UserContext = createContext();
 
 function App() {
   useEffect(() => {
@@ -21,16 +19,11 @@ function App() {
       '--primary-light': '#82b1ff'
     })
   });
-
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          명당캠핑 어드민
-        </p>
-      </header>
-      <LoginField/>
+      <LoginHeader />
+      <LoginField />
     </div>
   );
 }
