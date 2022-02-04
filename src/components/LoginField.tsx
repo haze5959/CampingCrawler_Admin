@@ -12,26 +12,30 @@ const Container = styled.div`
 `;
 
 export function LoginField() {
-  const [fields, handleFieldChange] = useState({
+  const [loginInfo, setLoginInfo] = useState({
     id: "",
     password: ""
   });
+
+  const idChange = (event: any) => { setLoginInfo({ ...loginInfo, id: event.value }) };
+  const pwChange = (event: any) => { setLoginInfo({ ...loginInfo, password: event.value }) };
+
+  const enableLoginBtn = loginInfo.id.length == 0 || loginInfo.password.length == 0
+
   const [loading, setLoading] = useState(false);
 
   return (
     <Container>
       <TextField
         label='ID'
-        className='my-3'
-        value={fields.id}
-        onChange={handleFieldChange} />
+        value={loginInfo.id}
+        onChange={idChange} />
       <TextField
         label='Password'
-        className='my-3'
         type='password'
-        value={fields.password}
-        onChange={handleFieldChange} />
-      <Button className='ma-8' disabled>Login</Button>
+        value={loginInfo.password}
+        onChange={pwChange} />
+      <Button disabled={enableLoginBtn} onClick={() => setLoading(true)}>Login</Button>
     </Container>
   );
 }

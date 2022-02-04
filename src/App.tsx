@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { LoginHeader } from './components/LoginHeader';
 import { LoginField } from './components/LoginField';
+import { MainLoading } from './components/MainLoading';
 import './App.css';
 import { overrideThemeVariables } from 'ui-neumorphism'
 import 'ui-neumorphism/dist/index.css'
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
       <LoginHeader />
       <LoginField />
+      <MainLoading />
     </div>
   );
 }
